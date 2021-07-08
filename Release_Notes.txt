@@ -1,0 +1,22 @@
+Todo:
+# define for variables
+Recipents on Top of code
+
+
+#######################
+V1    08-Jul-2021
+#######################
+- EEPROM.Update instead of Write
+- Reply SMS delay added and At command also added
+- Added delay in required places
+- Control GSM Power in Setup
+- Change relay pin to 13
+- Add 12 pin to ON for 5 Sec and OFF, when ON SMS Received
+- Added Comments to the code
+- Edit Message to ON1 and OFF1
+
+#######################
+V0    06-Jul-2021
+#######################
+- Make relay ON and OFF using SMS(ON, OFF)
+- Send Reply ON and OFF Success
