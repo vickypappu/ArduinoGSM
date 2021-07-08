@@ -1,0 +1,8 @@
+Decode SMS to ON and OFF
+https://www.electroschematics.com/sim800l-one-channel-sms-relay/
+
+Send receive Code and Connection diagram
+https://devcraze.com/tutorials/read-and-send-sms-using-sim800l-gsm-module-and-arduino/
+
+EEPROM Code
+https://mechatrofice.com/arduino/arduino-save-output-last-state-while-power-off
