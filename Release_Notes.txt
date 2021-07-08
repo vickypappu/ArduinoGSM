@@ -7,13 +7,13 @@ Recipents on Top of code
 V1    08-Jul-2021
 #######################
 - EEPROM.Update instead of Write
-- Reply SMS delay added and At command also added
-- Added delay in required places
-- Control GSM Power in Setup
 - Change relay pin to 13
-- Add 12 pin to ON for 5 Sec and OFF, when ON SMS Received
-- Added Comments to the code
 - Edit Message to ON1 and OFF1
+- Control GSM Power in Setup using pin 9
+- Reply SMS delay added
+- Added delay in required places
+- Added Comments to the code
+- Added Relay2Ph function and commented
 
 #######################
 V0    06-Jul-2021
