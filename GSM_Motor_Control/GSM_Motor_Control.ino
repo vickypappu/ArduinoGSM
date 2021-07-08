@@ -54,7 +54,7 @@ inputString.toUpperCase();
 if (inputString.indexOf("OFF") > -1){
 digitalWrite(relay, LOW);
 digitalWrite(LED_BUILTIN, LOW);
-EEPROM.write(address, 'L');
+EEPROM.update(address, 'L');
 mySerial.println("AT+CMGDA=\"DEL ALL\"");
 sendsms1();
 sendsms2();
@@ -62,7 +62,7 @@ sendsms2();
 if (inputString.indexOf("ON") > -1){
 digitalWrite(relay, HIGH);
 digitalWrite(LED_BUILTIN, HIGH);
-EEPROM.write(address, 'H');
+EEPROM.update(address, 'H');
 mySerial.println("AT+CMGDA=\"DEL ALL\"");
 sendsms1();
 sendsms2();
