@@ -8,10 +8,10 @@
 #include <SoftwareSerial.h>
 SoftwareSerial mySerial(3,2);  // (Rx,Tx  > Tx,Rx)
 
-char incomingByte;
-String inputString;
+char incomingByte;   //SMS Byte by byte
+String inputString;  //SMS String
 
-int relay3ph = 12;
+int relay3ph = 12; //3 Phase Relay for 6 Series in Auto
 
 
 void setup() 
@@ -32,6 +32,7 @@ void setup()
   mySerial.println("AT+CNMI=1,2,0,0,0");  //Procedure to handle newly arrived messages(command name in text: new message indications to TE) 
   delay(1000);
   mySerial.println("AT+CMGL=\"REC UNREAD\""); // Read Unread Messages
+  delay(1000);
 }
 
 void loop()
@@ -44,7 +45,6 @@ if(mySerial.available())
     incomingByte = mySerial.read();
     inputString += incomingByte; 
     }
-
   delay(10);      
   Serial.println("###Start");
   Serial.println(inputString);
