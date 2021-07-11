@@ -4,7 +4,7 @@
  * Arduino IDE (Author): 1.6.9
  * T.K.Hareendran/2018
  */
-
+#include <EEPROM.h>
 #include <SoftwareSerial.h>
 SoftwareSerial mySerial(3,2);  // (Rx,Tx  > Tx,Rx)
 
@@ -18,6 +18,14 @@ void setup()
 {
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(relay3ph, OUTPUT);
+  if (EEPROM.read(0) == 'H') {
+    digitalWrite(relay3ph, HIGH);
+    digitalWrite(LED_BUILTIN, HIGH);
+  }
+  else {
+    digitalWrite(relay3ph, LOW);
+    digitalWrite(LED_BUILTIN, LOW);
+  }
   Serial.begin(9600);
   mySerial.begin(9600);
   while(!mySerial.available())
@@ -55,10 +63,12 @@ if(mySerial.available())
   if (inputString.indexOf("OFF1") > -1){
     digitalWrite(LED_BUILTIN, LOW);
     digitalWrite(relay3ph, LOW);
+    EEPROM.update(0, 'L');
     }
   if (inputString.indexOf("ON1") > -1){
     digitalWrite(LED_BUILTIN, HIGH);
     digitalWrite(relay3ph, HIGH);
+    EEPROM.update(0, 'H');
     }          
   delay(50);
   //Delete Messages & Save Memory
