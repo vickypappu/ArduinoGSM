@@ -64,11 +64,13 @@ if(mySerial.available())
     digitalWrite(LED_BUILTIN, LOW);
     digitalWrite(relay3ph, LOW);
     EEPROM.update(0, 'L');
+    sendsms(0);
     }
   if (inputString.indexOf("ON1") > -1){
     digitalWrite(LED_BUILTIN, HIGH);
     digitalWrite(relay3ph, HIGH);
     EEPROM.update(0, 'H');
+    sendsms(1);
     }          
   delay(50);
   //Delete Messages & Save Memory
@@ -77,4 +79,25 @@ if(mySerial.available())
   //delay(1000);
   }
   inputString = "";
+}
+
+void sendsms(int x)
+{
+  mySerial.println("AT");
+  delay(500);
+  mySerial.println("AT+CMGF=1");
+  delay(500);
+  mySerial.println("AT+CMGS=\"+919944496716\"\r");
+  delay(500);
+  if (x == 0){
+    mySerial.print("OFF Success");
+    }
+  else if (x == 1){
+    mySerial.print("ON Success");
+    }
+  else {
+    mySerial.print("Error - Invalid SMS");
+  }
+  delay(500);
+  mySerial.write(26);
 }
