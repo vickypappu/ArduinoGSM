@@ -1,19 +1,14 @@
 Todo:
-# define for variables
+# define for variables or cost int
 Recipents on Top of code
 
-
 #######################
-V1    08-Jul-2021
+V1    11-Jul-2021
 #######################
 - EEPROM.Update instead of Write
-- Change relay pin to 13
 - Edit Message to ON1 and OFF1
-- Control GSM Power in Setup using pin 9
-- Reply SMS delay added
-- Added delay in required places
 - Added Comments to the code
-- Added Relay2Ph function and commented
+- Reply SMS added
 
 #######################
 V0    06-Jul-2021
