@@ -13,7 +13,10 @@ String inputString;  //SMS String
 
 int relay3ph = 12; //3 Phase Relay for 6 Series in Auto
 
-
+/****************************************************************/
+/***      Initialization        *********************************/
+/***      Runs only once at the time of start********************/
+/****************************************************************/
 void setup() 
 {
   pinMode(LED_BUILTIN, OUTPUT);
@@ -42,6 +45,11 @@ void setup()
   mySerial.println("AT+CMGL=\"REC UNREAD\""); // Read Unread Messages
   delay(1000);
 }
+
+/****************************************************************/
+/***      Main Loop             *********************************/
+/***      Runs infinitely; never quits       ********************/
+/****************************************************************/
 
 void loop()
 {
@@ -80,6 +88,10 @@ if(mySerial.available())
   }
   inputString = "";
 }
+
+/****************************************************************/
+/***      Send SMS Message      *********************************/
+/****************************************************************/
 
 void sendsms(int x)
 {
